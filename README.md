@@ -8,4 +8,4 @@ Version php orienté objet
 
 pour mieux gérer les figures spéciales via des classes et non des if....
 
-Ajouter partie abstraction
+// Ajouter partie abstraction ==> Fait
