@@ -1,1 +1,2 @@
 
+<rect x='300' y='300' width='58' height='58' fill='White' stroke='White' opacity='1'></rect>

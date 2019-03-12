@@ -3,8 +3,8 @@
 
 class Circle extends Shape {
 
-    protected $radius;
-    protected $radiusY;
+    public $radius;
+    public $radiusY;
 
     function setRadius($radius){
         $this->radius = $radius;

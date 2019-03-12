@@ -7,11 +7,11 @@ abstract class Shape {
      * peut avoir function abstraites qui seront obligatoirement présentes chez les enfants
      */
 
-    protected $posX;
-    protected $posY;
-    protected $color;
-    protected $opacity;
-    protected $stroke;
+    public $posX;
+    public $posY;
+    public $color;
+    public $opacity;
+    public $stroke;
 
     public function __construct() {
         $this->color = "red";

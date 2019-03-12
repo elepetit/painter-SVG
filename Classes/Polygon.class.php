@@ -2,7 +2,7 @@
 
 class Polygon extends Shape {
 
-    protected $points = [];
+    public $points = [];
 
 
     function addPoints($x,$y){

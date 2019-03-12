@@ -38,12 +38,14 @@ class Program {
 
         $cercle->setColor($bckColor);
         $cercle->setStroke($bdrColor);
+
         if($radiusY>0){
             $cercle->setRadiusY($radiusY);
         }
         else{
             $cercle->setRadiusY($radius);
         }
+
         Tools::save_txt('shape.txt',[$this->renderer->drawCircle($cercle)]);
 
     }

@@ -3,8 +3,8 @@
 
 class Rectangle extends Shape {
 
-    protected $width;
-    protected $height;
+    public $width;
+    public $height;
 
     function setSize($width, $height){
         $this->width = $width;
