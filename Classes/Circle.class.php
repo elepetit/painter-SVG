@@ -19,11 +19,11 @@ class Circle extends Shape {
 
         if($this->radiusY){
 
-            return array($this->posX, $this->posY, $this->radius, $this->radiusY, $this->color, $this->stroke, $this->opacity);
+            return array($this->position->x, $this->position->y, $this->radius, $this->radiusY, $this->color, $this->stroke, $this->opacity);
         }
         else{
 
-            return array($this->posX, $this->posY, $this->radius, $this->color, $this->stroke, $this->opacity);
+            return array($this->position->x, $this->position->y, $this->radius, $this->color, $this->stroke, $this->opacity);
         }
 
     }
