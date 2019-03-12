@@ -1,0 +1,68 @@
+<form id="toolbar" action="index.php" method="GET">
+    <div id="tools">
+        <fieldset>
+            <label for="posX">Abscisse </label>
+            <input id="posX" name="posX" size="5">
+
+            <label for="posY">Ordonnée</label>
+            <input id="posY" name="posY" size="5">
+
+            <label for="radius">Côté/Rayon X</label>
+            <input id="radius" name="radius" size="5">
+
+            <label for="radiusY">Ellipse Rayon Y</label>
+            <input id="radiusY" name="radiusY" size="5">
+
+            <label for="path">Path</label>
+            <input id="path" name="path" size="100">
+        </fieldset>
+        <fieldset>
+            <label for="bckColor">Couleur fond</label>
+            <select name="bckColor" id="bckColor">
+
+                <?php foreach($colors as $key=>$value): ?>
+                    <option value="<?=$key ?>"><?=$key ?></option>
+                <?php endforeach; ?>
+
+            </select>
+
+            <label for="bdrColor">Couleur bordure</label>
+            <select name="bdrColor" id="bdrColor">
+
+                <?php foreach($colors as $key=>$value): ?>
+                    <option value="<?=$key ?>"><?=$key ?></option>
+                <?php endforeach; ?>
+
+            </select>
+
+            <input type="hidden" value="<?= $saveCoords; ?>" name="coords">
+            <button id="squareBtn" data-outil="squareBtn" name="shapeBtn" value="square">Carré</button>
+            <button id="circleBtn" data-outil="circleBtn" name="shapeBtn" value="circle">Cercle</button>
+            <button id="triangleBtn" data-outil="triangleBtn" name="shapeBtn" value="polygon">Polygône</button>
+            <button id="pathBtn" data-outil="pathBtn" name="shapeBtn" value="path">Path</button>
+
+            <button style="background-color: red;" id="clear" name="shapeBtn" value="clear">Effacer</button>
+        </fieldset>
+
+
+
+        </div>
+
+</form>
+<form id='borders' action="index.php" method = "GET">
+    <fieldset>
+        <legend> Polygones</legend>
+            <div>
+                <label for="pointX">X</label>
+                <input id="pointX" name="pointX" size="5">
+
+                <label for="pointY">Y</label>
+                <input id="pointY" name="pointY" size="5">
+
+                <button>Ajouter un point</button>
+
+                <input type="text" value="<?= $saveCoords; ?>" name="coords" readonly>
+            </div>
+
+    </fieldset>
+</form>

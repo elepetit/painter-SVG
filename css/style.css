@@ -1,0 +1,12 @@
+.main-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+    margin: auto;
+}
+svg{
+    width: 90%;
+    height: 600px;
+    margin: auto;
+}
