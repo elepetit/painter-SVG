@@ -33,6 +33,7 @@ class Renderer
 
         return "<polygon points='$points' ></polygon>";
     }
+
     public function drawPath($path,$bdrColor, $bckColor){
 
         return "<path d='".$path." fill='".$bckColor."' stroke='".$bdrColor."'/>";

@@ -1,12 +1,17 @@
 <?php
 
-class Shape {
+abstract class Shape {
+    /**
+     * abstraite ne peut etre instanciée
+     * pas de mebres privés
+     * peut avoir function abstraites qui seront obligatoirement présentes chez les enfants
+     */
 
-    public $posX;
-    public $posY;
-    public $color;
-    public $opacity;
-    public $stroke;
+    protected $posX;
+    protected $posY;
+    protected $color;
+    protected $opacity;
+    protected $stroke;
 
     public function __construct() {
         $this->color = "red";
@@ -34,6 +39,6 @@ class Shape {
         $this->opacity = $opacity;
     }
 
-    function draw(){}
+    abstract public function draw();
 
 }

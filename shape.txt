@@ -1,3 +1,1 @@
-<path d='M10 10 H 90 V 90 H 10 Z fill='black' stroke='black' />
-<path d='M10 10 H 90 V 90 H 10 Z fill='PeachPuff' stroke='Goldenrod />
-<path d='M10 10 H 90 V 90 H 10 Z fill='DarkSalmon' stroke='Aqua'/>
+
