@@ -1,6 +1,7 @@
-# painter-SVG
+# painter-SVG-JS
 
-Version php orienté objet
+Version php orienté objet avec Js
+
 à optimiser avec 
 
 - classe carré extends rectangle
