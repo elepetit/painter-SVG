@@ -1,6 +1,6 @@
 # painter-SVG-JS
 
-Version php orienté objet avec Js
+Version php orienté objet avec Ajax
 
 à optimiser avec 
 
