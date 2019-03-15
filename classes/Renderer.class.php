@@ -18,7 +18,7 @@ class Renderer
 
         return
 
-        "<rect x='$rectangle->posY' y='$rectangle->posY' width='$rectangle->width' height='$rectangle->height' fill='$rectangle->color' stroke='$rectangle->stroke' opacity='$rectangle->opacity'></rect>";
+        "<rect x='$rectangle->posX' y='$rectangle->posX' width='$rectangle->width' height='$rectangle->height' fill='$rectangle->color' stroke='$rectangle->stroke' opacity='$rectangle->opacity'></rect>";
 
     }
 
@@ -26,7 +26,7 @@ class Renderer
 
         return
 
-            "<ellipse cx='$circle->po' cy='$circle->posY' rx='$circle->radius' ry='$circle->radiusY' fill='$circle->color' stroke='$circle->stroke' opacity='$circle->opacity'></ellipse>";
+            "<ellipse cx='$circle->posX' cy='$circle->posY' rx='$circle->radius' ry='$circle->radiusY' fill='$circle->color' stroke='$circle->stroke' opacity='$circle->opacity'></ellipse>";
     }
 
     public function drawPolygon($points){
@@ -36,6 +36,6 @@ class Renderer
 
     public function drawPath($path,$bdrColor, $bckColor){
 
-        return "<path d='".$path." fill='".$bckColor."' stroke='".$bdrColor."'/>";
+        return "<path d='".$path."' fill='".$bckColor."' stroke='".$bdrColor."'/>";
     }
 }

@@ -15,42 +15,15 @@ $renderer = new Renderer();
 $program = new Program($renderer);
 $colors = $program->getColors();
 $shapes = $renderer->renderScheme('shape.txt');
+$saveCoords = '';
+if(array_key_exists('ajax', $_GET)){
 
-if(array_key_exists('shapeBtn', $_GET)){
+    $shapeType = $_GET['tool'];
 
-    $posX = $_GET['posX'];
-    $posY = $_GET['posY'];
-    $radius = $_GET['radius'];
-    $radiusY = $_GET['radiusY'];
-    $bckColor = $_GET['bckColor'];
-    $bdrColor = $_GET['bdrColor'];
-    $path = $_GET['path'];
-    $coords = explode(',',$_GET['coords']);
-    var_dump($coords);
-    switch ($_GET['shapeBtn']){
-        case 'square':
-            $program->drawSquare($posX,$posY,$radius, $bckColor, $bdrColor);
-            break;
-        case 'circle':
-            $program->drawCircle($posX,$posY, $radius, $radiusY, $bckColor, $bdrColor);
-            break;
-        case 'polygon':
-            $program->drawPolygon($coords, $bckColor, $bdrColor);
-            break;
-        case 'path':
-            $program->drawPath($path,$bdrColor, $bckColor);
-            break;
-        case 'clear':
-            $program->clearShape();
-            break;
-        default:
-            return;
-    }
+    echo $program->addShape($shapeType, $_GET);
 
-    header('location: index.php');
-
+    exit;
 }
-
 
 if(array_key_exists('pointX', $_GET)){
 

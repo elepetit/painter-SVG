@@ -7,26 +7,28 @@ abstract class Shape {
      * peut avoir function abstraites qui seront obligatoirement présentes chez les enfants
      */
 
-    //public $posX;
-    //public $posY;
+    public $posX;
+    public $posY;
     public $color;
     public $opacity;
     public $stroke;
-    public $position;
 
     public function __construct() {
         $this->color = "red";
         $this->stroke = "black";
         $this->opacity = 1;
-        $this->position = new Point();
+        $this->posX = 0;
+        $this->posY = 0;
     }
 
     function setColor($color){
         $this->color = $color;
     }
 
+
     function setPosition($posX, $posY){
-        $this->position->move($posX, $posY);
+        $this->posX = $posX;
+        $this->posY = $posY;
     }
 
     function setStroke($stroke){
