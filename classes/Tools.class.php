@@ -4,7 +4,7 @@ class Tools {
 
     static function get_txt($fileName){
 
-        if (($handle = fopen($fileName, "a+")) !== FALSE) {
+        if (($handle = fopen($fileName, "r")) !== FALSE) {
             $shapes = [];
 
             while (($data = fgets($handle)) !== FALSE) {
@@ -14,7 +14,7 @@ class Tools {
             }
             fclose($handle);
         }
-        return $shapes;
+        return json_encode($shapes);
     }
 
 

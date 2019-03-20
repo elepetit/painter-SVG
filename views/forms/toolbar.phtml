@@ -19,7 +19,7 @@
         <fieldset>
             <label for="bckColor">Couleur fond</label>
             <select name="bckColor" id="bckColor">
-
+                <option value="black" selected>Black</option>
                 <?php foreach($colors as $key=>$value): ?>
                     <option value="<?=$key ?>"><?=$key ?></option>
                 <?php endforeach; ?>
@@ -28,14 +28,15 @@
 
             <label for="bdrColor">Couleur bordure</label>
             <select name="bdrColor" id="bdrColor">
-
+                <option value="black" selected>Black</option>
                 <?php foreach($colors as $key=>$value): ?>
                     <option value="<?=$key ?>"><?=$key ?></option>
                 <?php endforeach; ?>
 
             </select>
 
-            <input type="hidden" value="<?= $saveCoords; ?>" name="coords">
+            <label for="radiusY">Opacité</label>
+            <input id="radiusY" name="opacity" size="5">
 
             <div>
                 <input type="radio" id="square" name="tool" value="square"
@@ -49,8 +50,8 @@
             </div>
 
             <div>
-                <input type="radio" id="triangle" name="tool" value="triangle">
-                <label for="triangle">Triangle</label>
+                <input type="radio" id="triangle" name="tool" value="polygon">
+                <label for="triangle">Polygône</label>
             </div>
 
             <div>
@@ -58,23 +59,16 @@
                 <label for="path">Path</label>
             </div>
 
-            <button id="submit"  name="submit" value="submit">Tracer</button>
+            <div>
+                <input type="radio" id="path" name="tool" value="clear">
+                <label for="path">Effacer le Svg</label>
+            </div>
 
 
-            <button style="background-color: red;" id="clear" name="shapeBtn" value="clear">Effacer</button>
+
         </fieldset>
-
-
-
-        </div>
-
-</form>
-
-
-
-<form id='borders' action="index.php" method = "GET">
-    <fieldset>
-        <legend> Polygones</legend>
+        <fieldset>
+            <legend> Polygones</legend>
             <div>
                 <label for="pointX">X</label>
                 <input id="pointX" name="pointX" size="5">
@@ -82,10 +76,17 @@
                 <label for="pointY">Y</label>
                 <input id="pointY" name="pointY" size="5">
 
-                <button>Ajouter un point</button>
+                <button type="submit">Ajouter un point</button>
 
-                <input type="text" value="<?= $saveCoords; ?>" name="coords" readonly>
+                <input id="points" type="text" value="<?php if(isset($saveCoords)):?><?= $saveCoords; ?><?php endif; ?>" name="coords" >
             </div>
 
-    </fieldset>
+        </fieldset>
+        <fieldset>
+            <button id="submit"  name="submit" value="submit">Valider le formulaire</button>
+        </fieldset>
+
+
+        </div>
+
 </form>

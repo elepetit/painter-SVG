@@ -16,9 +16,10 @@ class Renderer
     }
     public function drawRect($rectangle){
 
-        return
 
-        "<rect x='$rectangle->posX' y='$rectangle->posX' width='$rectangle->width' height='$rectangle->height' fill='$rectangle->color' stroke='$rectangle->stroke' opacity='$rectangle->opacity'></rect>";
+        $attrs = json_encode(array('type'=>'rect', 'x'=> $rectangle->posX, 'y'=> $rectangle->posX, 'width'=>$rectangle->width, 'height'=> $rectangle->height, 'fill'=> $rectangle->color, 'stroke' => $rectangle->stroke, 'opacity' => $rectangle->opacity)) ;
+
+        return $attrs;
 
     }
 
@@ -26,16 +27,17 @@ class Renderer
 
         return
 
-            "<ellipse cx='$circle->posX' cy='$circle->posY' rx='$circle->radius' ry='$circle->radiusY' fill='$circle->color' stroke='$circle->stroke' opacity='$circle->opacity'></ellipse>";
+            json_encode(array('type'=>'ellipse', 'cx'=>$circle->posX, 'cy'=> $circle->posY, 'rx'=> $circle->radius, 'ry'=> $circle->radiusY, 'fill' => $circle->color, 'stroke'=> $circle->stroke, 'opacity'=>$circle->opacity));
     }
 
-    public function drawPolygon($points){
+    public function drawPolygon($polygon){
 
-        return "<polygon points='$points' ></polygon>";
+        return json_encode(array('type'=>'polygon', 'points'=>$polygon->getPoints(), 'fill'=> $polygon->color, 'stroke'=>$polygon->stroke, 'opacity'=>$polygon->opacity));
     }
 
-    public function drawPath($path,$bdrColor, $bckColor){
+    public function drawPath($path,$bdrColor, $bckColor, $opacity){
 
-        return "<path d='".$path."' fill='".$bckColor."' stroke='".$bdrColor."'/>";
+        return json_encode(array('type'=> 'path', 'd'=>$path, 'fill'=>$bckColor, 'stroke'=>$bdrColor, 'opacity'=>$opacity));
+
     }
 }

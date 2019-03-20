@@ -12,18 +12,22 @@ class Polygon extends Shape {
         // ajout d'un nouveau point
         array_push($this->points, new Point());
 
-        // positionne le point au bonnes coordonées
+        // positionne le point aux bonnes coordonnées
         $this->points[$lastIndex]->move($x,$y);
     }
+    function getPoints(){
 
-    function draw() {
-        $points = "";
+        $points="";
 
         foreach ($this->points as $point) {
-            $points .= "$point->x,$point->y ";
-        }
 
+            $points .= "$point->x ,$point->y ";
+        }
         return $points;
+    }
+    function draw() {
+
+        return array($this->getPoints(), $this->color, $this->stroke, $this->opacity);
     }
 
 }

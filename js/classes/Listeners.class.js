@@ -6,24 +6,63 @@ Events.prototype.start = function(){
 
     $('#toolbar').submit(this.onSubmitForm);// on surveille l'envoi du formulaire
 
+    this.redraw();
+
 };
 
-Events.prototype.onSubmitForm = function(){
+Events.prototype.onSubmitForm = function(event){
 
     event.preventDefault();// le formulaire reste au javascript
 
     let data = $(this).serialize() + "&ajax=true"; // on recupère les données
 
-    //requete ajax => on envoie le formulaire au php
+    let arrayData = ($(this).serializeArray());
 
-    $.get('', data, function(newShape){ //->On recupere le echo du php
+    console.log(arrayData[8].value);
 
-        $('svg').append(newShape); // on ajoute le echo du php au Svg
+        $.getJSON('', data, function(data){ //->On recupere le echo du php
+            console.log(data);
+            if(arrayData[8].value === "clear")
+                {
+
+                    $("#chart").empty();
+                }
+            else
+                {
+                    var svg = document.createElementNS('http://www.w3.org/2000/svg', data['type']);
+
+                    let entries = (Object.entries(data));
+
+                    for (let k in entries) {
+
+                        svg.setAttribute(entries[k][0], entries[k][1]);
+                    }
+
+                    $('svg').append(svg); // on ajoute le echo du php au Svg
+                }
+
+        });
+};
+
+Events.prototype.redraw = function(){
+
+    $.getJSON('', 'redraw=true', function(data) {
+
+        for (let j in data) {
+
+            let array = (JSON.parse(data[j]));
+
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', array['type']);
+
+            let entries = (Object.entries(array));
+
+            for (let k in entries) {
+
+                svg.setAttribute(entries[k][0], entries[k][1]);
+            }
+            $('svg').append(svg); // on ajoute le echo du php au Svg
+
+        }
     });
 
-};
-
-Events.prototype.onAjaxSubmitForm = function(newShape){
-
-    $('svg').append(newShape); // on ajoute le echo du php au Svg
-};
+}

@@ -14,17 +14,17 @@ require_once "classes/Renderer.class.php";
 $renderer = new Renderer();
 $program = new Program($renderer);
 $colors = $program->getColors();
-$shapes = $renderer->renderScheme('shape.txt');
-$saveCoords = '';
+
 if(array_key_exists('ajax', $_GET)){
 
-    $shapeType = $_GET['tool'];
+    if($_GET['pointX']===''){
 
-    echo $program->addShape($shapeType, $_GET);
+        $shapeType = $_GET['tool'];
+        echo $program->addShape($shapeType, $_GET);
+    }
 
     exit;
 }
-
 if(array_key_exists('pointX', $_GET)){
 
     if($_GET['coords']){
@@ -37,7 +37,12 @@ if(array_key_exists('pointX', $_GET)){
     $y = intval($_GET['pointY']);
     array_push($coords, $x,$y);
     $saveCoords = implode(',', $coords);
+    exit;
+}
+if(array_key_exists('redraw', $_GET)){
 
+    echo $renderer->renderScheme('shape.txt');
+    exit;
 }
 
-include "views/index.phtml";
+include "views/index.xhtml";
