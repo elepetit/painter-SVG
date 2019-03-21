@@ -1,12 +1,5 @@
 # painter-SVG-JS
+Php Object and Ajax requests
 
-Version php orienté objet avec Ajax
+Have to work on dynamicly clear svg and add coords for polygons
 
-à optimiser avec 
-
-- classe carré extends rectangle
-- classe cercle extends ellipse
-
-pour mieux gérer les figures spéciales via des classes et non des if....
-
-// Ajouter partie abstraction ==> Fait
