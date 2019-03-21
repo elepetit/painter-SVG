@@ -1,0 +1,1 @@
+{"type":"rect","x":"300","y":"300","width":"50","height":"50","fill":"black","stroke":"black","opacity":""}

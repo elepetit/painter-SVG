@@ -20,28 +20,26 @@ Events.prototype.onSubmitForm = function(event){
 
     console.log(arrayData[8].value);
 
+    if(arrayData[8].value === "clear")
+    {
+        console.log('dede');
+        $("#chart").empty();
+    }
+    else {
         $.getJSON('', data, function(data){ //->On recupere le echo du php
-            console.log(data);
-            if(arrayData[8].value === "clear")
-                {
 
-                    $("#chart").empty();
-                }
-            else
-                {
-                    var svg = document.createElementNS('http://www.w3.org/2000/svg', data['type']);
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', data['type']);
 
-                    let entries = (Object.entries(data));
+            let entries = (Object.entries(data));
 
-                    for (let k in entries) {
+            for (let k in entries) {
 
-                        svg.setAttribute(entries[k][0], entries[k][1]);
-                    }
+                svg.setAttribute(entries[k][0], entries[k][1]);
+            }
 
-                    $('svg').append(svg); // on ajoute le echo du php au Svg
-                }
-
+            $('svg').append(svg); // on ajoute le echo du php au Svg
         });
+    }
 };
 
 Events.prototype.redraw = function(){
